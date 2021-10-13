@@ -27,6 +27,11 @@ final class ConfigProvider
                     // ],
                 ],
             ],
+            'hook' => [
+                'provider' => [
+                    Filter::class,
+                ],
+            ],
             'dependencies' => [
                 'aliases' => [],
                 'factories' => [
