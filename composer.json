@@ -1,0 +1,86 @@
+{
+    "name": "woda/wp-allowed-block-types",
+    "type": "library",
+    "description": "",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Woda Digital OG",
+            "email": "hello@woda.at",
+            "homepage": "https://www.woda.at",
+            "role": "Company"
+        },
+        {
+            "name": "David Mondok",
+            "email": "david@woda.at",
+            "homepage": "https://github.com/davidmondok",
+            "role": "Developer"
+        },
+        {
+            "name": "Wolfgang Schaefer",
+            "email": "wolfgang@woda.at",
+            "homepage": "https://github.com/wolfgangschaefer",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "ext-json": "^7.4",
+        "psr/container": "^1.0",
+        "thecodingmachine/safe": "^1.3",
+        "woda/wp-config": "v1.x-dev",
+        "woda/wp-hook": "v1.x-dev"
+    },
+    "require-dev": {
+        "eventjet/coding-standard": "^3.2",
+        "infection/infection": "^0.20.0",
+        "maglnet/composer-require-checker": "^2.1",
+        "phpstan/extension-installer": "^1.0",
+        "phpstan/phpstan": "^0.12.32",
+        "phpstan/phpstan-phpunit": "^0.12.11",
+        "phpstan/phpstan-strict-rules": "^0.12.2",
+        "phpunit/phpunit": "^9.3",
+        "roots/wordpress": "^5.8",
+        "szepeviktor/phpstan-wordpress": "^0.7.3",
+        "thecodingmachine/phpstan-safe-rule": "^1.0",
+        "woda/wp-test-double": "v1.x-dev"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Woda\\WordPress\\BlockEditor\\AllowedBlockTypes\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Woda\\Test\\Functional\\WordPress\\BlockEditor\\AllowedBlockTypes\\": "tests/functional",
+            "Woda\\Test\\Unit\\WordPress\\BlockEditor\\AllowedBlockTypes\\": "tests/unit"
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://woda.repo.repman.io"
+        }
+    ],
+    "extra": {
+        "wordpress-install-dir": "vendor/wordpress/wordpress"
+    },
+    "minimum-stability": "stable",
+    "scripts": {
+        "check": [
+            "@check-deps",
+            "@cs-check",
+            "@phpstan",
+            "@phpunit"
+        ],
+        "check-deps": "vendor/bin/composer-require-checker check --config-file=require-checker.config.json",
+        "cs-check": "vendor/bin/phpcs",
+        "cs-fix": "vendor/bin/phpcbf",
+        "phpstan": "vendor/bin/phpstan analyse",
+        "phpstan-pro": "vendor/bin/phpstan analyse --pro",
+        "phpunit": "vendor/bin/phpunit"
+    }
+}
